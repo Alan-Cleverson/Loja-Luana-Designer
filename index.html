@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luana Santos Design - Nail Art & Estética Avançada</title>
+    <!-- Importação otimizada de fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,400;1,400;1,600&family=Playfair+Display:ital,wght@0,500;1,500&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Cinzel:wght@500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #3D1C22;
+            --bg-gradient: linear-gradient(135deg, #4A222A 0%, #291015 100%);
+            --card-bg: #FAF2F4;          /* Rosa pastel suave */
+            --primary-dark: #4A2027;     /* Tom principal para títulos */
+            --accent-gold: #D4AF37;      /* Dourado metálico luxuoso */
+            --text-dark: #2B181C;        /* Texto principal */
+            --text-muted: #6B4E54;       /* Texto secundário */
+            --whatsapp-green: #25D366;   /* Verde do WhatsApp */
+            --whatsapp-hover: #1EBE5D;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            background: var(--bg-main);
+            background-image: var(--bg-gradient);
+            color: var(--text-dark);
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Camada de Fundo Equilibrada nas Laterais */
+        .body-subliminal-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            will-change: transform;
+        }
+
+        /* Classes de fontes elegantes */
+        .f-playfair { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; }
+        .f-cormorant { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; }
+        .f-montserrat { font-family: 'Montserrat', sans-serif; font-style: italic; font-weight: 600; letter-spacing: 2px; }
+        .f-cinzel { font-family: 'Cinzel', serif; letter-spacing: 3px; }
+
+        .sub-word {
+            position: absolute;
+            font-size: 14px;
+            color: #F3E5AB;
+            user-select: none;
+            text-shadow: 0 0 6px rgba(212, 175, 55, 0.2);
+            opacity: 0.28;
+            animation: flutuar 10s ease-in-out infinite alternate;
+        }
+
+        .sub-icon {
+            position: absolute;
+            user-select: none;
+            opacity: 0.32;
+            animation: flutuar 12s ease-in-out infinite alternate-reverse;
+        }
+
+        .sub-icon svg {
+            width: 36px;
+            height: 36px;
+            fill: none;
+            stroke: #F3E5AB;
+            stroke-width: 1.4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.2));
+        }
+
+        /* --- LADO ESQUERDO --- */
+        .L-1  { top: 5%; left: 3%; transform: rotate(-18deg); font-size: 15px; animation-duration: 9s; }
+        .L-2  { top: 15%; left: 8%; transform: rotate(14deg); animation-duration: 11s; }
+        .L-3  { top: 25%; left: 2%; transform: rotate(-22deg); animation-duration: 13s; font-size: 14px; }
+        .L-4  { top: 38%; left: 9%; transform: rotate(18deg); animation-duration: 8s; }
+        .L-5  { top: 48%; left: 3%; transform: rotate(-12deg); animation-duration: 12s; font-size: 15px; }
+        .L-6  { top: 60%; left: 8%; transform: rotate(25deg); animation-duration: 10s; }
+        .L-7  { top: 72%; left: 2%; transform: rotate(-20deg); animation-duration: 9.5s; font-size: 14px; }
+        .L-8  { top: 84%; left: 7%; transform: rotate(15deg); animation-duration: 14s; }
+        .L-9  { top: 92%; left: 3%; transform: rotate(-15deg); animation-duration: 11.5s; font-size: 13px; }
+
+        /* --- LADO DIREITO --- */
+        .R-1  { top: 6%; right: 4%; transform: rotate(20deg); font-size: 15px; animation-duration: 10s; }
+        .R-2  { top: 16%; right: 8%; transform: rotate(-15deg); animation-duration: 12s; }
+        .R-3  { top: 28%; right: 3%; transform: rotate(24deg); animation-duration: 9s; font-size: 14px; }
+        .R-4  { top: 39%; right: 9%; transform: rotate(-18deg); animation-duration: 13s; }
+        .R-5  { top: 50%; right: 2%; transform: rotate(16deg); animation-duration: 11s; font-size: 15px; }
+        .R-6  { top: 62%; right: 8%; transform: rotate(-22deg); animation-duration: 9.5s; }
+        .R-7  { top: 74%; right: 3%; transform: rotate(18deg); animation-duration: 12.5s; font-size: 14px; }
+        .R-8  { top: 85%; right: 7%; transform: rotate(-14deg); animation-duration: 10.5s; }
+        .R-9  { top: 93%; right: 4%; transform: rotate(22deg); animation-duration: 13.5s; font-size: 13px; }
+
+        @keyframes flutuar {
+            0% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.25; }
+            50% { opacity: 0.45; }
+            100% { transform: translateY(-12px) translateX(8px) scale(1.02); opacity: 0.25; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            background-color: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-family: 'Great Vibes', cursive;
+            color: var(--primary-dark);
+            font-size: 56px;
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .header .subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: var(--accent-gold);
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .impact-quote {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #7A3542;
+            font-size: 16px;
+            line-height: 1.4;
+            margin-bottom: 24px;
+            padding: 0 15px;
+            font-weight: 600;
+        }
+
+        .impact-quote.footer-quote {
+            font-size: 17px;
+            color: #612833;
+            margin-top: 32px;
+            margin-bottom: 20px;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-align: center;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 8px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Grelha de Serviços Limpa (Sem foto no fundo) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .service-card {
+            background: #FFFFFF;
+            padding: 20px;
+            border-radius: 14px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 8px 22px rgba(212, 175, 55, 0.2);
+        }
+
+        .service-info h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+        }
+
+        .service-info p {
+            font-size: 12px;
+            color: var(--text-dark);
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .single-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            margin-bottom: 24px;
+        }
+
+        .single-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .single-img-wrapper:hover img {
+            transform: scale(1.03);
+        }
+
+        .whatsapp-container {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn-whatsapp {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            background-color: var(--whatsapp-green);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 18px;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--whatsapp-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp svg.w-icon {
+            width: 22px;
+            height: 22px;
+            fill: #FFFFFF;
+            stroke: none;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- CLONE DO WHATSAPP MODELADO EXATAMENTE NO TAMANHO DA TELA DE TELEFONE --- */
+        .wa-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wa-chat-box {
+            width: 100vw;
+            height: 100vh;
+            max-width: 480px;
+            max-height: 850px;
+            background: #efeae2;
+            background-image: radial-gradient(#d1ccc0 1px, transparent 1px);
+            background-size: 20px 20px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .wa-header {
+            background-color: #075e54;
+            color: white;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .wa-profile-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .wa-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #25d366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: white;
+            border: 1px solid #fff;
+        }
+
+        .wa-contact-info h4 {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .wa-contact-info span {
+            font-size: 11px;
+            color: #e0e0e0;
+        }
+
+        .wa-close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 26px;
+            cursor: pointer;
+            padding: 0 5px;
+        }
+
+        .wa-body {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .wa-message {
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.4;
+            position: relative;
+            box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+            word-wrap: break-word;
+        }
+
+        .wa-message.incoming {
+            background: #ffffff;
+            color: #111111;
+            align-self: flex-start;
+            border-top-left-radius: 0;
+        }
+
+        .wa-message.outgoing {
+            background: #d9fdd3;
+            color: #111111;
+            align-self: flex-end;
+            border-top-right-radius: 0;
+        }
+
+        .wa-time {
+            font-size: 10px;
+            color: #999;
+            float: right;
+            margin-left: 8px;
+            margin-top: 4px;
+        }
+
+        .wa-options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .wa-option-btn {
+            background: #ffffff;
+            color: #00a884;
+            border: 1px solid #00a884;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            transition: all 0.2s;
+        }
+
+        .wa-option-btn:hover {
+            background: #f0f2f5;
+        }
+
+        .wa-footer {
+            background: #f0f2f5;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .wa-input {
+            flex: 1;
+            background: white;
+            padding: 10px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #111;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .wa-send-btn {
+            background: #00a884;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 24px 18px; }
+            .header h1 { font-size: 44px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .banner-img, .single-img-wrapper { height: 160px; }
+            .wa-chat-box { width: 100vw; height: 100vh; max-width: 100%; max-height: 100%; border-radius: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fundo equilibrado nas duas laterais -->
+    <div class="body-subliminal-bg">
+        <div class="sub-word f-playfair L-1">Elegância</div>
+        <div class="sub-icon L-2">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="sub-word f-cormorant L-3">Sofisticação</div>
+        <div class="sub-icon L-4">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="sub-word f-montserrat L-5">Exclusiva</div>
+        <div class="sub-icon L-6">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="sub-word f-cinzel L-7">Radiante</div>
+        <div class="sub-icon L-8">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="sub-word f-playfair L-9">Brilho</div>
+
+        <div class="sub-word f-cormorant R-1">Deslumbrante</div>
+        <div class="sub-icon R-2">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="sub-word f-montserrat R-3">Maravilhosa</div>
+        <div class="sub-icon R-4">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="sub-word f-cinzel R-5">Estilo</div>
+        <div class="sub-icon R-6">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="sub-word f-playfair R-7">Poderosa</div>
+        <div class="sub-icon R-8">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="sub-word f-cormorant R-9">Beleza</div>
+    </div>
+
+<div class="container">
+    <div class="header">
+        <h1>Luana Santos</h1>
+        <div class="subtitle"></div>
+        <p>Nail Designer</p>
+    </div>
+
+    <!-- Frase de Impacto Inicial -->
+    <p class="impact-quote">"É um verdadeiro prazer cuidar de você e realçar o que há de mais belo na sua essência."</p>
+
+    <!-- Foto 1 (Destaque no Topo) -->
+    <img src="imagens/foto1.jpg" alt="Nail Art Exclusiva" class="banner-img">
+
+    <div class="section-title">Serviços Prestados</div>
+
+    <!-- Lista de serviços limpa -->
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-info">
+                <h3>Fibra de Vidro</h3>
+                <p>Aplicação e manutenção com alta resistência, leveza e aspeto totalmente natural.</p>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-info">
+                <h3>Unha em Gel (Molde F1)</h3>
+                <p>Alongamento estruturado com acabamento perfeito e brilho de longa duração.</p>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-info">
+                <h3>Banho em Gel / Blindagem</h3>
+                <p>Tratamento de fortalecimento ideal para proteger e crescer unhas naturais.</p>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-info">
+                <h3>Esmaltação em Gel</h3>
+                <p>Cores intensas e secagem imediata com durabilidade de até 20 dias.</p>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-info">
+                <h3>Manicure Tradicional</h3>
+                <p>Cutilagem funda e delicada com hidratação e esmaltação convencional.</p>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-info">
+                <h3>Pedicure Tradicional</h3>
+                <p>Cuidado completo para os pés, higienização e acabamento sofisticado.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Foto 2 (Aberta e em destaque em largura total) -->
+    <div class="single-img-wrapper">
+        <img src="imagens/foto2.jpg" alt="Processo de Nail Art" loading="lazy">
+    </div>
+
+    <!-- Frase de Impacto Final -->
+    <p class="impact-quote footer-quote">"Você merece esse momento de cuidado. Sinta-se única, radiante e confiante."</p>
+
+    <!-- Botão de Agendamento no WhatsApp -->
+    <div class="whatsapp-container">
+        <button id="btnAbrirChat" class="btn-whatsapp">
+            <svg class="w-icon" viewBox="0 0 24 24">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zM12.04 20.1c-1.42 0-2.81-.38-4.03-1.1l-.29-.17-3.05.8.81-2.97-.19-.31c-.81-1.31-1.23-2.83-1.23-4.38 0-4.57 3.72-8.29 8.29-8.29 2.22 0 4.31.87 5.88 2.44 1.57 1.57 2.44 3.66 2.44 5.88 0 4.57-3.72 8.29-8.28 8.29zm4.55-6.22c-.25-.13-1.48-.73-1.71-.82-.23-.09-.4-.13-.57.13-.17.25-.66.82-.81.99-.15.17-.3.19-.55.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.3.38-.45.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.38-.79-1.89-.21-.49-.43-.42-.59-.43h-.5c-.17 0-.45.06-.69.32-.24.25-.91.89-.91 2.17 0 1.28.93 2.52 1.06 2.7.13.17 1.83 2.8 4.43 3.92.62.27 1.1.43 1.48.55.62.2 1.18.17 1.62.1.49-.07 1.48-.6 1.69-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/>
+            </svg>
+            Agendar Horário / Consultar Valores
+        </button>
+    </div>
+
+    <p class="footer-note">Atendimento exclusivo com hora marcada</p>
+</div>
+
+<!-- MODAL DO CLONE DO WHATSAPP (TELA DE TELEFONE) -->
+<div id="waModal" class="wa-modal-overlay">
+    <div class="wa-chat-box">
+        <div class="wa-header">
+            <div class="wa-profile-area">
+                <div class="wa-avatar">L</div>
+                <div class="wa-contact-info">
+                    <h4>Luana Santos Design</h4>
+                    <span>online</span>
+                </div>
+            </div>
+            <button id="waClose" class="wa-close-btn">&times;</button>
+        </div>
+
+        <div id="waBody" class="wa-body">
+            <div class="wa-message incoming">
+                Olá! Seja bem-vinda ao atendimento de Luana Santos Design. Escolha uma opção abaixo:
+                <div class="wa-options-container">
+                    <button class="wa-option-btn" onclick="processarEscolha('1')">1️⃣ - Serviços e Preços</button>
+                    <button class="wa-option-btn" onclick="processarEscolha('2')">2️⃣ - Falar com Luana</button>
+                </div>
+                <span class="wa-time">10:00</span>
+            </div>
+        </div>
+
+        <div class="wa-footer">
+            <input type="text" id="waInput" class="wa-input" placeholder="Digite uma mensagem..." onkeypress="verificarEnter(event)">
+            <button class="wa-send-btn" onclick="enviarMensagemDigitada()">➤</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('waModal');
+    const btnAbrir = document.getElementById('btnAbrirChat');
+    const btnFechar = document.getElementById('waClose');
+    const waBody = document.getElementById('waBody');
+    const waInput = document.getElementById('waInput');
+    const numeroWhatsapp = "5538998417651";
+
+    btnAbrir.addEventListener('click', (e) => { e.preventDefault(); modal.style.display = 'flex'; });
+    btnFechar.addEventListener('click', () => { modal.style.display = 'none'; });
+
+    function horaAtual() {
+        return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function processarEscolha(opcao) {
+        const h = horaAtual();
+        if (opcao === '1' || opcao.includes('serviço') || opcao.includes('preço') || opcao.includes('tabela')) {
+            waBody.innerHTML += `<div class="wa-message outgoing">1️⃣ - Serviços e Preços<span class="wa-time">${h}</span></div>`;
+            setTimeout(() => {
+                waBody.innerHTML += `
+                    <div class="wa-message incoming">
+                        💅 <strong>Tabela de Serviços e Preços:</strong><br><br>
+                        • Fibra de vidro: R$ 140,00<br>
+                        • Manutenção: R$ 90,00<br>
+                        • Unha em gel: R$ 140,00<br>
+                        • Manutenção: R$ 90,00<br>
+                        • Banho em gel: R$ 90,00<br>
+                        • Blindagem: R$ 60,00<br>
+                        • Manicure tradicional (pé e mão): R$ 45,00<br>
+                        • Só pé ou mão: R$ 25,00<br><br>
+                        👉 Deseja agendar algum desses serviços? Digite <strong>agendar</strong> ou clique abaixo:
+                        <div class="wa-options-container">
+                            <button class="wa-option-btn" onclick="transferirLuana('Olá! Vi a tabela de preços e gostaria de agendar um horário.')">📅 Quero Agendar</button>
+                            <button class="wa-option-btn" onclick="transferirLuana('Olá! Gostaria de falar diretamente com Luana.')">💬 Falar com Luana</button>
+                        </div>
+                        <span class="wa-time">${h}</span>
+                    </div>`;
+                waBody.scrollTop = waBody.scrollHeight;
+            }, 500);
+        } else if (opcao === '2' || opcao.includes('luana') || opcao.includes('falar')) {
+            waBody.innerHTML += `<div class="wa-message outgoing">2️⃣ - Falar com Luana<span class="wa-time">${h}</span></div>`;
+            setTimeout(() => { transferirLuana('Olá! Vim pelo site e gostaria de falar diretamente com Luana.'); }, 600);
+        } else if (opcao.includes('agendar') || opcao.includes('marcar') || opcao.includes('horário')) {
+            waBody.innerHTML += `<div class="wa-message outgoing">${opcao}<span class="wa-time">${h}</span></div>`;
+            setTimeout(() => { transferirLuana('Olá! Gostaria de verificar a disponibilidade na agenda para agendamento.'); }, 600);
+        } else {
+            waBody.innerHTML += `<div class="wa-message outgoing">${opcao}<span class="wa-time">${h}</span></div>`;
+            setTimeout(() => {
+                waBody.innerHTML += `
+                    <div class="wa-message incoming">
+                        🤔 Entendi! Para eu te dar o melhor atendimento e verificar os detalhes com precisão, vou te transferir agora mesmo para falar diretamente com Luana. Um momento!
+                        <span class="wa-time">${h}</span>
+                    </div>`;
+                waBody.scrollTop = waBody.scrollHeight;
+                setTimeout(() => {
+                    const url = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(opcao)}`;
+                    window.open(url, '_blank');
+                }, 1500);
+            }, 600);
+        }
+        waBody.scrollTop = waBody.scrollHeight;
+    }
+
+    function verificarEnter(e) {
+        if (e.key === 'Enter') { enviarMensagemDigitada(); }
+    }
+
+    function enviarMensagemDigitada() {
+        const texto = waInput.value.trim();
+        if (texto === "") return;
+        waInput.value = "";
+        processarEscolha(texto.toLowerCase());
+    }
+
+    function transferirLuana(mensagemTexto) {
+        const h = horaAtual();
+        waBody.innerHTML += `
+            <div class="wa-message incoming">
+                🔄 Perfeito! Estou te transferindo agora para o WhatsApp oficial de Luana. Um momento...
+                <span class="wa-time">${h}</span>
+            </div>`;
+        waBody.scrollTop = waBody.scrollHeight;
+
+        setTimeout(() => {
+            const url = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(mensagemTexto)}`;
+            window.open(url, '_blank');
+        }, 1200);
+    }
+</script>
+
+</body>
+</html>
